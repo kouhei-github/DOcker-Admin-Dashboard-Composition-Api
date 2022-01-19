@@ -1,0 +1,14 @@
+version: '3'
+services:
+  vue:
+    container_name: vue
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - ./source:/frontend
+      - ./source/node-modules:/frontend/node-modules
+    command: yarn serve
+    ports:
+      - "3333:8080"
+    tty: true
